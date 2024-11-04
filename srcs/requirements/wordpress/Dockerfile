@@ -43,5 +43,5 @@ COPY ./requirements/wordpress/conf/wp-config-create.sh .
 EXPOSE 9000
 RUN sh wp-config-create.sh && rm wp-config-create.sh && \
     chmod -R 0777 wp-content/
-CMD ["php-fpm", "-F"]
+CMD ["php-fpm8", "-F"]
 #CMD ["/usr/sbin/php-fpm", "-F"]
