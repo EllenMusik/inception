@@ -1,6 +1,6 @@
 
 FROM alpine:3.19
-ARG PHP_VERSION=8.1 \
+ARG PHP_VERSION=8.2 \
     DB_NAME \
     DB_USER \
     DB_PASS
