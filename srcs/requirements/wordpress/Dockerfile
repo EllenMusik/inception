@@ -26,14 +26,14 @@ RUN apk update && apk upgrade && apk add --no-cache \
     # sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php/php-fpm.d/www.conf && \
     # sed -i "s|;listen.owner = nobody|listen.owner = nobody|g" /etc/php/php-fpm.d/www.conf && \
     # sed -i "s|;listen.group = nobody|listen.group = nobody|g" /etc/php/php-fpm.d/www.conf && \
+    #rm -f /var/cache/apk/*
+    sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" \
+      /etc/php82/php-fpm.d/www.conf && \
+    sed -i "s|;listen.owner = nobody|listen.owner = nobody|g" \
+      /etc/php82/php-fpm.d/www.conf && \
+    sed -i "s|;listen.group = nobody|listen.group = nobody|g" \
+      /etc/php82/php-fpm.d/www.conf && \
     rm -f /var/cache/apk/*
-    # sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" \
-    #   /etc/php8.2/php-fpm.d/www.conf && \
-    # sed -i "s|;listen.owner = nobody|listen.owner = nobody|g" \
-    #   /etc/php8.2/php-fpm.d/www.conf && \
-    # sed -i "s|;listen.group = nobody|listen.group = nobody|g" \
-    #   /etc/php8.2/php-fpm.d/www.conf && \
-    # rm -f /var/cache/apk/*
 WORKDIR /var/www
 RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && \
@@ -43,4 +43,4 @@ COPY ./requirements/wordpress/conf/wp-config-create.sh .
 EXPOSE 9000
 RUN sh wp-config-create.sh && rm wp-config-create.sh && \
     chmod -R 0777 wp-content/
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["/usr/sbin/php-fpm", "-F"]
