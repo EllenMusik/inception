@@ -4,8 +4,8 @@ ARG PHP_VERSION=8.2 \
     DB_NAME \
     DB_USER \
     DB_PASS
-RUN mkdir /etc/php && mkdir /etc/php/php-fpm.d/ && \
-    chmod -R 755 /etc/php/php-fpm.d/
+RUN mkdir /etc/php && mkdir /etc/php82/php-fpm.d/ && \
+    chmod -R 755 /etc/php82/php-fpm.d/
 RUN apk update && apk upgrade && apk add --no-cache \
     php \
     php-fpm \
@@ -44,4 +44,5 @@ EXPOSE 9000
 RUN sh wp-config-create.sh && rm wp-config-create.sh && \
     chmod -R 0777 wp-content/
 #CMD ["php-fpm8", "-F"]
+RUN which php-fpm || which php-fpm8 || ls /usr/sbin/ || ls /usr/bin/
 CMD ["/usr/sbin/php-fpm8", "-F"]
