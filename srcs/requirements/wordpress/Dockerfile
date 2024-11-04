@@ -4,7 +4,7 @@ ARG PHP_VERSION=8.2 \
     DB_NAME \
     DB_USER \
     DB_PASS
-RUN chmod -R 755 /etc/php${PHP_VERSION}/php-fpm.d/
+RUN mkdir && chmod -R 755 /etc/php${PHP_VERSION}/php-fpm.d/
 RUN apk update && apk upgrade && apk add --no-cache \
     php${PHP_VERSION} \
     php${PHP_VERSION}-fpm \
