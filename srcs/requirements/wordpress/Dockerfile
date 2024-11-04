@@ -43,4 +43,4 @@ RUN sh wp-config-create.sh && rm wp-config-create.sh && \
     chmod -R 0777 wp-content/
 #CMD ["php-fpm8", "-F"]
 RUN which php-fpm || which php-fpm8 || ls /usr/sbin/ || ls /usr/bin/
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["/usr/sbin/php-fpm82", "-F"]
