@@ -33,6 +33,12 @@ clean: down
 	@sudo rm -rf ~/data/wordpress/*
 	@sudo rm -rf ~/data/mariadb/*
 
+bclean: bdown
+        @printf "Cleaning bonus configuration ${name}...\n"
+        @docker system prune -a
+        @sudo rm -rf ~/data/wordpress/*
+        @sudo rm -rf ~/data/mariadb/*
+
 fclean:
 	@printf "Total clean of all configurations docker\n"
 	@docker stop $$(docker ps -qa)
