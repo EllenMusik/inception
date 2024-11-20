@@ -1,4 +1,3 @@
-
 FROM alpine:3.19
 ARG PHP_VERSION=8.2 \
     DB_NAME \
