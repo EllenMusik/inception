@@ -13,22 +13,13 @@
 
         }
         .text{
-            color: rgb(34, 103, 130);
+            color: rgb(75, 8, 8);
         }
 
-        .makemeball{
-            width: 200px;
-            height: 200px;
-            background-color: rgb(23, 23, 146);
-
-            border-radius: 100%;
-            margin:auto
-        }
-
-        .beqa{
+        .hektor{
             DISPLAY:block;
-            width: 300px;
-            height: 300px;
+            width: 420px;
+            height: 500px;
             border-radius: 100%;
             margin: auto;
             outline: auto;
@@ -37,27 +28,17 @@
             cursor: pointer;
         }
 
-        .beqa:hover{
-            transform: scale(1.2);
+        .hektor:hover{
+            transform: scale(1.1);
         }
 
-        #beqadiv{
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-        }
     </style>
 </head>
 <body>
-    <h1 class="header">This is a<br> Heading</h1>
-    <p class="text">This is a paragraph.<br>
-        hello <br>
-        again</p>
-    <p> test </p>
+    <h1 class="header">This is <br> Hektor</h1>
+    <p class="text">He is a good boi.<br>
 
-    <img id="test" class="beqa" src="beqa1.jpg" alt="Beqa making Gerogian food for the first time" onClick="IamClicked()" />
-
-    <div id="beqadiv">
+    <img id="test" class="hektor" src="Hektor1.jpg" alt="Cute picture of my cat Hektor" onClick="IamClicked()" />
 
     </div>
 
@@ -66,16 +47,12 @@
         const beqa = document.getElementById("test");
         
         function IamClicked(){
-            if (beqa.src.indexOf("beqa1.jpg") != -1)
-                beqa.src = "beqa2.jpg";
+            if (beqa.src.indexOf("Hektor1.jpg") != -1)
+                beqa.src = "Hektor2.jpg";
             else
-                beqa.src = "beqa1.jpg";
+                beqa.src = "Hektor1.jpg";
         }
         
-
-        // setInterval(() => {
-        //     document.getElementById("beqadiv").appendChild(beqa.cloneNode(true));
-        // },[50000])
 
     </script>
 </body>

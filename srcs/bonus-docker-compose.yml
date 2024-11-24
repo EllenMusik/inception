@@ -102,6 +102,17 @@ services:
      - inception
     restart: always
 
+  ircserv:
+    build:
+      context: .
+      dockerfile: requirements/bonus/irc/Dockerfile 
+      args:
+        IRC_PASS: ${IRC_PASS}
+    container_name: ircserv
+    ports: 
+      - "8060:8060"
+    restart: always
+
 volumes:
   wp-volume:
     driver_opts:
